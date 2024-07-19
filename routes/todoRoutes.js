@@ -3,8 +3,8 @@ const mongoose= require('mongoose');
 const {genToken,jwtAuthMiddleware} = require('./../jwt.js');
 // const jwt=require('jsonwebtoken');
 
-const User = require('./../content/todoUser.model.js');
-const Todo = require('./../content/todoTask.model.js');
+const User = require('./../models/todoUser.model.js');
+const Todo = require('./../models/todoTask.model.js');
 PORT =3535;
 mongoURL="mongodb://localhost:27017/todoList";
 

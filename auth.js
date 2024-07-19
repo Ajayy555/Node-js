@@ -1,6 +1,6 @@
 const passport=require('passport')
 const LocalStrategy=require('passport-local').Strategy;
-const User = require('./content/todoUser.model.js');
+const User = require('./models/todoUser.model.js');
 
 
 

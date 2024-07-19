@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require("mongoose");
 // const db =require( './../db.js');
 const Person = require("../content/person.model.cjs");
-
+const multer = require('multer');
 const router = express.Router();
 
 
@@ -13,18 +13,35 @@ router.post('/', async (req, res) => {
         const newPerson = new Person(data);
         const response = await newPerson.save();
         console.log('data saved', response);
-        res.status(200).json(response)
+        // res.status(200).json(response)
+        return res.render(hotelHome)
     } catch (error) {
         console.log("error while saving data ", error);
     }
 })
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, '../userProfiles')
+    },
+    filename: function (req, file, cb) {
+      const uniqueSuffix = Date.now() ;
+      cb(null, file.fieldname + '-' + uniqueSuffix)
+    }
+  })
 
+router.post('./',async(req,res)=>{
+    img
+
+})
 
 router.get('/', async (req, res) => {
     try {
         const data = await Person.find();
         // const person=data.stringify();
-        res.status(201).json(data)
+        // res.status(201).json(data)
+        return res.render('hotelHome',{
+            person: data,
+        })
 
     } catch (error) {
         console.log('error while fetching data from db', error);

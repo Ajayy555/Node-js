@@ -1,7 +1,7 @@
 const mongoose =require( "mongoose");
 
 const personSchema = new mongoose.Schema({
-    name:{
+    username:{
         type:String,
         required : true,
     },
@@ -12,12 +12,12 @@ const personSchema = new mongoose.Schema({
     work:{
         type:String,
         enum:["chef","waiter","manager"],
-        required:true,
+        // required:true,
     },
     mobile:{
         type:String,
         required : true,
-        unique:true
+        // unique:true
 
     },
     email:{
@@ -33,6 +33,12 @@ const personSchema = new mongoose.Schema({
         type:Number,
         required : true,
     },
+    profilePic:{
+        type:String,
+    },password:{
+        type:String,
+        require:true
+    }
 
 
 },{timestamps:true});
